@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>hackerrank</title>
+	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	
+</head>
+<body>
+
+	
+	<a href="https://www.hackerrank.com/challenges/compare-the-triplets/problem" target=_blank><h3 class="text-success">Exercise 1: compare Triplets</h3></a>
+
+	<button class= "btn btn-success" id="compare" onclick="return compareTriplets([5, 6, 7],[3, 6, 10])">compareTriplets([5, 6, 7],[3, 6, 10])</button>
+
+
+ <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">INPUT</th>
+      <th scope="col">SOLL</th>
+      <th scope="col">IST</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>a = [5, 6, 7];<br>
+		b = [3, 6, 10];</td>
+      <td> 1 1 </td>
+      <td id="outputB">solution</td>
+    </tr>
+</tbody>
+</table>
+
+<hr>
+
+	<a href="https://www.hackerrank.com/challenges/diagonal-difference/problem" target=_blank><h3 class="text-success">Exercise 2: Diagonal Difference
+</h3></a>
+
+	<button class= "btn btn-success" id="diagonal" onclick="return diagonalDifference(array2)">diagonalDifference([3,
+11, 2, 4,
+4, 5, 6,
+10, 8, -12])</button>
+
+	<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">INPUT</th>
+      <th scope="col">SOLL</th>
+      <th scope="col">IST</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">2</th>
+      <td>3 <br>
+11 2 4 <br>
+4 5 6 <br>
+10 8 -12 </td>
+      <td>15 <br> The left-to-right diagonal = 4. <br>The right to left diagonal = 19.<br> Their absolute difference is |4-19| = 15.</td>
+      <td id="output15">solution</td>
+    </tr>
+</tbody>
+</table>
+	
+<hr>
+<a href="https://www.hackerrank.com/challenges/staircase/problem" target=_blank><h3 class="text-warning">Exercise 3: Stairway to heaven <span class= "text-danger">what a f+++..</span> 
+</h3></a>
+
+	<button class= "btn btn-warning" id="stairway" onclick="return buildStairway(6)">buildStairway(6)</button>
+
+	<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">INPUT</th>
+      <th scope="col">SOLL</th>
+      <th scope="col">IST</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">3</th>
+      <td>amount of stairs (4) </td>
+      <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; # <br>
+     &nbsp; &nbsp; &nbsp; &nbsp;##<br>
+    &nbsp; &nbsp; &nbsp;###<br>
+   &nbsp; &nbsp;####<br>
+  &nbsp;#####<br>
+###### <br> The staircase is right-aligned, <br> composed of # symbols and spaces, <br> and has a height and width of n .</td>
+      <td id="stairs">solution</td>
+    </tr>
+</tbody>
+</table>
+
+<hr>
+<a href="https://www.hackerrank.com/challenges/plus-minus/problem" target=_blank class="text-success"><h3>Exercise 4: Plus Minus
+</h3></a>
+
+	<button class= "btn btn-success" id="stairway" onclick="return plusMinus([-4, 3, -9, 0, 4, 1])">plusMinus(arr)</button>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">INPUT</th>
+      <th scope="col">SOLL</th>
+      <th scope="col">IST</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">4</th>
+      <td>6 <br> -4 3 -9 0 4 1    </td>
+      <td> 0.500000 <br>
+0.333333 <br>
+0.166667 <br>
+Print the following  lines, each to  decimals:<br>
+proportion of positive values<br>
+proportion of negative values<br>
+proportion of zeros<br>
+There are 3 positive numbers, 2 negative numbers, and 1 zero in the array.<br>
+The proportions of occurrence are positive: 3/6 , negative: 2/6 and zeros: 1/6.<br>
+###### <br> </td>
+      <td id="output4">solution</td>
+    </tr>
+</tbody>
+</table>
+
+<hr>
+<a href="https://www.hackerrank.com/challenges/mini-max-sum/problem" class="text-success"><h3>Exercise 5: Mini Max Sum: Integer Overflow
+</h3></a>
+
+	<button class= "btn btn-success" onclick="return miniMaxSum([1, 2, 3, 4, 5])">miniMaxSum([1, 2, 3, 4, 5])</button>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">INPUT</th>
+      <th scope="col">SOLL</th>
+      <th scope="col">IST</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">5</th>
+      <td>1, 2, 3, 4, 5   </td>
+      <td> 10 14<br>
+Print two space-separated integers on one line:<br> the minimum sum and the maximum sum of 4 of 5 elements. </td>
+      <td id="output5">solution</td>
+    </tr>
+</tbody>
+</table>
+
+
+<hr>
+<a href="https://www.hackerrank.com/challenges/birthday-cake-candles/problem" class="text-success"><h3>Exercise 6: Birthday Cake
+</h3></a>
+
+	<button class= "btn btn-success" onclick="return birthdayCakeCandles([3,2,1,3])">birthdayCakeCandles([3,2,1,3])</button>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">INPUT</th>
+      <th scope="col">SOLL</th>
+      <th scope="col">IST</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">6</th>
+      <td>3, 2, 1, 3  </td>
+      <td> 2 <br>
+The tallest candles are 3 units, and there are 2 of them </td>
+      <td id="output6"> solution</td>
+    </tr>
+</tbody>
+</table>
+
+<hr>
+<a href="https://www.hackerrank.com/challenges/time-conversion/problem" class="text-info"><h3>Exercise 7: Time Conversion 
+</h3></a>
+
+	<button class= "btn btn-info" onclick="return timeConversion('07:05:45PM')">timeConversion('07:05:45PM')</button>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">INPUT</th>
+      <th scope="col">SOLL</th>
+      <th scope="col">IST</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">7</th>
+      <td>'12:01:00PM' <br> '12:01:00AM' </td>
+      <td> Return '12:01:00'<br> Return '00:01:00'. </td>
+      <td id="output7"> solution</td>
+    </tr>
+</tbody>
+</table>
+
+<hr>
+<a href="https://www.hackerrank.com/challenges/apple-and-orange/problem" class="text-info"><h3>Apple and Orange 
+</h3></a>
+
+	<button class= "btn btn-info" onclick="return countApplesAndOranges(7, 11, 5, 15, [-2, 2, 1], [5, -6])">countApplesAndOranges('s, t, a, b, apples, oranges')</button>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">INPUT</th>
+      <th scope="col">SOLL</th>
+      <th scope="col">IST</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">8</th>
+      <td>7 11 <br>
+5 15<br>
+3 2<br>
+-2 2 1<br>
+5 -6 <br> 
+1) s t : start and ending house <br>
+2) a b : location apple and orange tree <br>
+3) amount apples and oranges <br>
+4) apples : distances that each apple falls from point <br>
+5) oranges : distances that each orange falls from point</td>
+      <td> 1 1 <br> apples and oranges in the region</td>
+      <td id="output8"> solution</td>
+    </tr>
+</tbody>
+</table>
+
+
+<hr>
+<a href="https://www.hackerrank.com/challenges/kangaroo/problem" class="text-info"><h3>Kangaroo 
+</h3></a>
+
+	<button class= "btn btn-info" onclick="return kangaroo(0, 3, 4, 2)">kangaroo(0 3 4 2)</button>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">INPUT</th>
+      <th scope="col">SOLL</th>
+      <th scope="col">IST</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">9</th>
+      <td>0 3 4 2 <br> 
+x1, v1: integers, starting position and jump distance for kangaroo 1 <br>
+x2, v2: integers, starting position and jump distance for kangaroo 2
+      <td> YES <br> possible outcomes: YES/NO</td>
+      <td id="output9"> solution</td>
+    </tr>
+</tbody>
+</table>
+
+
+<hr>
+<a href="https://www.hackerrank.com/challenges/grading/problem" class="text-info"><h3>Grading Students 
+</h3></a>
+
+	<button class= "btn btn-info" onclick="return gradingStudents([73, 67, 38, 33])">gradingStudents([73, 67, 38, 33])</button>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">INPUT</th>
+      <th scope="col">SOLL</th>
+      <th scope="col">IST</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">10</th>
+      <td>4<br> 73<br> 67<br> 38<br> 33 <br> 
+
+      <td> <br> 75 <br> 67 <br> 40<br> 33
+</td>
+      <td id="output10"> solution</td>
+    </tr>
+</tbody>
+</table>
+
+
+<hr>
+<a href="https://www.hackerrank.com/challenges/magic-square-forming/problem" class="text-info"><h3>Magic Square 
+</h3></a>
+
+	<button class= "btn btn-info" onclick="return magicSquare([[5, 3, 4], [1, 5, 8], [6, 4, 2]])">magicSquare([[5, 3, 4], [1, 5, 8], [6, 4, 2]]</button>
+
+
+	<button class= "btn btn-info" onclick="return magicSquare([[4, 9, 2], [3, 5, 7], [8, 1, 5]])">magicSquare([4, 9, 2], [3, 5, 7], [8, 1, 5])</button>
+
+	<button class= "btn btn-info" onclick="return magicSquare([[4, 8, 2], [4, 5, 7], [6, 1, 6]])">magicSquare([4, 8, 2], [4, 5, 7], [6, 1, 6])</button>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">INPUT</th>
+      <th scope="col">SOLL</th>
+      <th scope="col">IST</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">11</th>
+      <td>4 9 2 <br> 3 5 7 <br> 8 1 5 <br> <br> 
+      	4 8 2 <br> 4 5 7 <br> 6 1 6 <br>
+      <td><br> 1 <br> <br> <br> 4
+</td>
+      <td id="output11"> solution</td>
+    </tr>
+</tbody>
+</table>
+
+
+<hr>
+<a href="https://www.hackerrank.com/challenges/the-birthday-bar/problem" class="text-info"><h3>Birthday Chocolate 
+</h3></a>
+
+	<button class= "btn btn-info" onclick="return birthday([1,2,1,3,2], 3, 2)">birthday([1,2,1,3,2], 3, 2)</button>
+
+	<button class= "btn btn-info" onclick="return birthday([1,1,1,1,1,1], 3, 2)">birthday([1,1,1,1,1,1], 3, 2)</button>
+
+		<button class= "btn btn-info" onclick="return birthday([4], 4, 1)">birthday([4], 4, 1)</button>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">INPUT</th>
+      <th scope="col">SOLL</th>
+      <th scope="col">IST</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">12</th>
+      <td>6<br>1 1 1 1 1 1<br>3 2 <br> <br> 
+      	1 <br> 4<br> 4 1 <br> <br> 
+      	5 <br> 1 2 1 3 2 <br>3 2
+      <td><br> 0 <br> <br> <br> 1<br> <br> <br> <br> 2
+</td>
+      <td id="output12"> solution</td>
+    </tr>
+</tbody>
+</table>
+
+
+<hr>
+<a href="https://www.hackerrank.com/challenges/encryption/problem" class="text-info" target="_blank"><h3>ENCRYPTION 
+</h3></a>
+
+	<button class= "btn btn-info" onclick="return encryption('feedthedog')">encryption("feedthedog")</button>
+	<button class= "btn btn-info" onclick="return encryption('haveaniceday')">encryption("haveaniceday")</button>
+	<button class= "btn btn-info" onclick="return encryption('chillout')">encryption("chillout")</button>
+	<br> <br>
+	<button class= "btn btn-info" onclick="return encryption('if man was meant to stay on the ground god would have given us roots')">encryption("if man was meant to stay on the ground god would have given us roots")</button>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">INPUT</th>
+      <th scope="col">SOLL</th>
+      <th scope="col">IST</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">13</th>
+      <td>haveaniceday <br> feedthedog <br> chillout 
+      <td>hae and via ecy<br> fto ehg ee dd <br> clu hlt io 
+</td>
+      <td id="output13"> solution</td>
+    </tr>
+</tbody>
+</table>
+
+
+<hr>
+<a href="https://www.hackerrank.com/challenges/designer-pdf-viewer/problem" class="text-info" target="_blank"><h3>Designer-Pdf-Viewer
+</h3></a>
+	<button class= "btn btn-info" onclick="return designerPdfViewer([1,3,1,3,1,4,1,3,2,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5], 'abc')">designerPdfViewer([1,3,1,3,1,4,1,3,2,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5], 'abc')</button>
+<hr>
+	<button class= "btn btn-info" onclick="return designerPdfViewer([1, 3, 1, 3, 1, 4, 1, 3, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 7], 'zaba')">designerPdfViewer([1, 3, 1, 3, 1, 4, 1, 3, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 7], 'zaba')</button>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">INPUT</th>
+      <th scope="col">SOLL</th>
+      <th scope="col">IST</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">14</th>
+      <td>1 3 1 3 1 4 1 3 2 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 <br>abc <br> 1 3 1 3 1 4 1 3 2 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 7 <br>zaba 
+      <td>9 <br> = 3 * 3mm <br> 28 <br> = 4 * 7mm <br>  = (amount letters * highest letter)
+</td>
+      <td id="output14"> solution</td>
+    </tr>
+</tbody>
+</table>
+
+<hr>
+<a href="https://www.hackerrank.com/challenges/utopian-tree/problem" class="text-info" target="_blank"><h3>Utopian Tree <span class= "text-danger"> terrible outputscheme online..</span> 
+</h3></a>
+	<button class= "btn btn-info" onclick="return utopianTree([0, 1, 4])">utopianTree(0, 1, 4)</button>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">INPUT</th>
+      <th scope="col">SOLL</th>
+      <th scope="col">IST</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">15</th>
+      <td>3 <br>0<br>1<br>4 </td> 
+      <td>1 <br> 2 <br>7</td>
+      <td id="output16"> solution</td>
+    </tr>
+</tbody>
+</table>
+
+<hr>
+<a href="https://www.hackerrank.com/challenges/angry-professor/problem" class="text-info" target="_blank"><h3>Angry Professor
+</h3></a>
+  <button class= "btn btn-info" onclick="return angryProfessor(3, [-1, -3, 4, 2])">angryProfessor(3, [-1, -3, 4, 2])</button>
+
+    <button class= "btn btn-info" onclick="return angryProfessor(2, [0, -1, 2, 1])">angryProfessor(2, [0, -1, 2, 1]])</button>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">INPUT</th>
+      <th scope="col">SOLL</th>
+      <th scope="col">IST</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">16</th>
+      <td>4 3 <br>-1 -3 4 2 <br> 4 2 <br>0 -1 2 1 </td> 
+      <td>YES <br> <br> NO </td>
+      <td id="outputprof"> solution</td>
+    </tr>
+</tbody>
+</table>
+
+<hr>
+<a href="https://www.hackerrank.com/challenges/circular-array-rotation/problem" class="text-info" target="_blank"><h3>Circular Array Rotation - <span class= "text-danger"> TIME OUT while testing..</span>
+</h3></a>
+  <button class= "btn btn-info" onclick="return circularArrayRotation([1,2,3], 2, [0,1,2])">circularArrayRotation([1,2,3], 2, [0,1,2])</button>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">INPUT</th>
+      <th scope="col">INPUT explanation</th>
+      <th scope="col">SOLL</th>
+      <th scope="col">IST</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">17</th>
+      <td>3 2 3 <br>1 2 3 <br> 0 <br>1 <br> 2 </td> 
+      <td>n (number of elements) k (rotation count) q (number of queries) <br> int array <br> the index/indices of element to return </td>
+      <td>2 <br> 3 <br> 1</td>
+      <td id="output17"> solution</td>
+    </tr>
+</tbody>
+</table>
+
+<hr>
+<a href="https://www.hackerrank.com/challenges/cut-the-sticks/problem" class="text-danger" target="_blank"><h3>Cut the sticks - <span class= "text-danger"> tomorrow.</span>
+</h3></a>
+  <button class= "btn btn-danger" onclick="return cutTheSticks([1, 2, 3, 4, 3, 3, 2, 1])">cutTheSticks([1, 2, 3, 4, 3, 3, 2, 1])</button>
+
+    <button class= "btn btn-danger" onclick="return cutTheSticks([5, 4, 4, 2, 2, 8])">cutTheSticks([5, 4, 4, 2, 2, 8])</button>
+
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">INPUT</th>
+      <!-- <th scope="col">INPUT explanation</th> -->
+      <th scope="col">SOLL</th>
+      <th scope="col">IST</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">18</th>
+      <td>1 2 3 4 3 3 2 1 <br><br><br><br><br> 5 4 4 2 2 8 </td> 
+      <!-- <td></td> -->
+      <td>8 <br>6<br>4<br>1 <br><br> 6<br>4<br>2<br>1</td>
+      <td id="output18"> solution</td>
+    </tr>
+</tbody>
+</table>
+
+	    <script src="hacker.js"></script>
+</body>
+</html>
