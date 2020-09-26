@@ -904,69 +904,207 @@ function circularArrayRotation(a, k, queries) {
 
 //Exercise 18
 function cutTheSticks(arr) {
-console.log("-- Cut the Stick -- ");
-output18.innerHTML = "";
-var min = 0;
+    console.log("-- Cut the Stick -- ");
+    output18.innerHTML = "";
+    var min = 0;
 
-//get Minimum of arr
-function getMin(arr){
-for (let i = 0; i < arr.length; i++){
-   if ((arr[i] < arr[i+1]) && (arr[i] < min) || (min == 0 )){
-     min = arr[i];
-   }
+    //get Minimum of arr
+    function getMin(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            // if ((arr[i] < arr[i+1]) && (arr[i] < min) || (min == 0 )){ wrong
+            if (((arr[i] < min) && (arr[i] != 0)) || (min == 0)) {
+                min = arr[i];
+                console.log("min: " + min + "arr[i] " + arr[i]);
+            }
+        }
+        //console.log("min:" + min);
+        return min;
+    }
+
+    //check if there is still one element not null
+    /*
+    console.log("---TEST FUNCTION MIN START---");
+
+    var min = 4;
+    var test1 = getMin([3, 2, 2, 0, 0, 6]);
+    console.log("SOLL: " + 2);
+    console.log("IST:" + test1);
+
+    console.log("---TEST FUNCTION MIN END---");
+    */
+
+    min = getMin(arr);
+    console.log(min);
+
+    var amount = arr.length;
+    console.log(arr);
+
+    //the cutting
+    var amountArr = [];
+    var delta = 0;
+    var countArr = [];
+    countArr.push(arr.length);
+    var count = 0;
+
+    while (min > 0) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] != 0) {
+                delta = (arr[i] - min);
+                amountArr.push(delta);
+            }
+            if ((delta != 0) && (arr[i] != 0)) {
+                count++;
+            }
+
+        }
+        console.log("amountArr:" + amountArr);
+
+        min = 0; // reset to 0 - otherwise it stays with last min if all = 0 
+        min = getMin(amountArr);
+        console.log("new Min: " + min);
+        arr = amountArr;
+        amountArr = [];
+        if (min != 0) {
+            console.log("count: " + count);
+            countArr.push(count);
+        }
+        console.log("countArr: " + countArr);
+        count = 0;
+        console.log(arr);
+        console.log(amountArr);
+
+    }
+
+    for (let i = 0; i < countArr.length; i++) {
+        output18.innerHTML += countArr[i] + "<br>";
+    }
+
+    console.log(countArr);
+
 }
-//console.log("min:" + min);
-return min;
+
+
+//Exercise 19
+function findDigits(n) {
+    console.log(" -- FIND Digits --");
+    output19.innerHTML = "";
+    var outputArr = [];
+    var output; 
+
+    for (let i = 0; i < n.length; i++) {
+        //console.log(n[i]);
+        // console.log("digits length: " + getlength(n[i]));
+        output = getDigits(n[i]);
+        console.log("ROUND: " + i);
+        console.log("digits amount modnull: " + output);
+       output19.innerHTML += output + "<br>";
+       outputArr.push(output);
+
+    }
+
+
+    //get length of number
+    function getlength(number) {
+        return number.toString().length;
+    }
+
+
+    //get digits
+    function getDigits(number) {
+
+        string = number.toString();
+
+        //  res = [];
+        modnull = 0;
+
+        for (let i = 0; i < string.length; i++) {
+            //res.push(string.charAt(i));
+
+/*
+            console.log("digit:");
+            console.log(string.charAt(i));
+
+            console.log("modulo:");
+            console.log(number % string.charAt(i));
+            */
+
+            if ((number % string.charAt(i)) == 0) {
+                modnull++;
+               console.log("modnull: " + modnull);
+            }
+
+        }
+        //console.log("ausgabe: " + modnull); //umgehungsvariante for hackerrank:?
+        return modnull;
+
+
+    }
+
+    //console.log(outputArr);
+        for (let i= 0; i < outputArr.length; i++){
+        console.log("end" + outputArr[i]);
+    }
+
+
 }
 
-//check if there is still one element not null
 
-min = getMin(arr);
-console.log(min);
+//FUCK HACKERRANK output undefined
+function findDigitsHack(n) {
 
-var amount = arr.length;
-console.log(arr);
+    var outputArr = [];
+    var output; 
 
-//the cutting
-var amountArr = [];
-var delta = 0;
-var countArr = [];
-countArr.push(arr.length);
-var count = 0;
+    for (let i = 0; i < n.length; i++) {
 
-while(min > 0){
-for (let i = 0; i < arr.length; i++){
-  if (arr[i] != 0){
-   delta = (arr[i] - min);
-   amountArr.push(delta);
-   }
-   if(delta != 0){
-     count++;
-   }
+        output = getDigits(n[i]);
+       // console.log("ROUND: " + i);
+       // console.log("digits amount modnull: " + output);
+       // console.log(output); //VARIANTE 1 not defined
+       // output19.innerHTML += output + "<br>";
+       outputArr.push(output);
 
-}
-console.log("amountArr:" + amountArr);
+    }
 
-min = 0; // reset to 0 - otherwise it stays with last min if all = 0 
-min = getMin(amountArr);
-console.log("new Min: " + min);
-arr = amountArr;
-amountArr=[];
-if (min != 0){
-console.log("count: " + count);
-countArr.push(count);
-}
-console.log("countArr: " + countArr);
-count = 0;
-console.log(arr);
-console.log(amountArr);
 
-}
 
-for (let i = 0; i < countArr.length; i++){
-  output18.innerHTML += countArr[i] + "<br>";
-}
 
-console.log(countArr);
+    //get digits
+    function getDigits(number) {
+
+        string = number.toString();
+
+        //  res = [];
+        modnull = 0;
+
+        for (let i = 0; i < string.length; i++) {
+
+
+            if ((number % string.charAt(i)) == 0) {
+                modnull++;
+              //  console.log("modnull: " + modnull);
+            }
+
+        }
+        // console.log(modnull); //VARIANTE 2 not defined
+        return modnull;
+
+
+    }
+
+    // console.log(outputArr); //VARIANTE 3 not defined
+   // return outputArr; //VARIANTE 4: empty 
+    
+    /*  //VARIANTE 5: not defined
+        for (let i = 0; i < outputArr.length; i++){
+        console.log(outputArr[i]);
+    }*/
+
+    /*
+         //VARIANTE 6: not defined
+        for (let i = 0; i < outputArr.length; i++){
+        return outputArr[i];
+    } */
+
 
 }
