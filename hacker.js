@@ -989,7 +989,7 @@ function findDigits(n) {
     console.log(" -- FIND Digits --");
     output19.innerHTML = "";
     var outputArr = [];
-    var output; 
+    var output;
 
     for (let i = 0; i < n.length; i++) {
         //console.log(n[i]);
@@ -997,8 +997,8 @@ function findDigits(n) {
         output = getDigits(n[i]);
         console.log("ROUND: " + i);
         console.log("digits amount modnull: " + output);
-       output19.innerHTML += output + "<br>";
-       outputArr.push(output);
+        output19.innerHTML += output + "<br>";
+        outputArr.push(output);
 
     }
 
@@ -1020,17 +1020,17 @@ function findDigits(n) {
         for (let i = 0; i < string.length; i++) {
             //res.push(string.charAt(i));
 
-/*
-            console.log("digit:");
-            console.log(string.charAt(i));
+            /*
+                        console.log("digit:");
+                        console.log(string.charAt(i));
 
-            console.log("modulo:");
-            console.log(number % string.charAt(i));
-            */
+                        console.log("modulo:");
+                        console.log(number % string.charAt(i));
+                        */
 
             if ((number % string.charAt(i)) == 0) {
                 modnull++;
-               console.log("modnull: " + modnull);
+                console.log("modnull: " + modnull);
             }
 
         }
@@ -1041,70 +1041,1106 @@ function findDigits(n) {
     }
 
     //console.log(outputArr);
-        for (let i= 0; i < outputArr.length; i++){
+    for (let i = 0; i < outputArr.length; i++) {
         console.log("end" + outputArr[i]);
     }
-
-
 }
 
 
-//FUCK HACKERRANK output undefined
+//FUCK HACKERRANK 
+//Version working with Hackerrank
 function findDigitsHack(n) {
-
-    var outputArr = [];
-    var output; 
-
-    for (let i = 0; i < n.length; i++) {
-
-        output = getDigits(n[i]);
-       // console.log("ROUND: " + i);
-       // console.log("digits amount modnull: " + output);
-       // console.log(output); //VARIANTE 1 not defined
-       // output19.innerHTML += output + "<br>";
-       outputArr.push(output);
-
-    }
-
-
 
 
     //get digits
     function getDigits(number) {
 
-        string = number.toString();
+        var string = number.toString();
 
-        //  res = [];
-        modnull = 0;
+        var modnull = 0;
 
         for (let i = 0; i < string.length; i++) {
 
 
             if ((number % string.charAt(i)) == 0) {
                 modnull++;
-              //  console.log("modnull: " + modnull);
+                //  console.log("modnull: " + modnull);
             }
 
         }
-        // console.log(modnull); //VARIANTE 2 not defined
+        console.log(modnull); //VARIANTE 2 not defined
         return modnull;
 
 
     }
 
-    // console.log(outputArr); //VARIANTE 3 not defined
-   // return outputArr; //VARIANTE 4: empty 
-    
-    /*  //VARIANTE 5: not defined
-        for (let i = 0; i < outputArr.length; i++){
-        console.log(outputArr[i]);
-    }*/
+
+    return getDigits(n);
+}
+
+
+
+//Exercise 20
+//Picking Numbers
+
+function pickingNumbers(a) {
+
+    console.log("Picking Numbers");
+
+    var arr = a.sort();
+    console.log(arr);
+
+    var outputArr = [];
+    var output = 0;
+    var subArray = [];
+    console.log("subArray.length: " + subArray.length);
+
+    sliceMaxArray([5, 5, 5, 5, 6]);
+
+    function sliceMaxArray(inputArray) {
+
+        var arrNeu = [];
+
+        for (let i = 0; i < inputArray.length; i++) {
+            //   console.log("i " + i + "arr[i] "+  inputArray[i] + " end: " + inputArray[(inputArray.length)-1]);
+
+            if (inputArray[i] == inputArray[(inputArray.length) - 1]) {
+                arrNeu.push(inputArray[i]);
+
+            }
+        }
+        //  console.log("after help" + arrNeu);
+        return arrNeu;
+    }
+
+    function getMaxArr(inputArray) {
+        var max = 0;
+        for (let i = 0; i < inputArray.length; i++) {
+            if (inputArray[i] > max) {
+                max = inputArray[i];
+            }
+
+        }
+        return max;
+    }
+
+    for (let i = 0; i < arr.length; i++) {
+
+        if ((Math.abs(arr[i] - arr[i + 1]) <= 1)) {
+
+            if (((subArray.length == 0)) || ((Math.abs(subArray[0] - arr[i]) <= 1) &&
+                    (Math.abs(subArray[(subArray.length - 1)]) - arr[i] <= 1))) {
+                console.log("neues subarray: " + arr[i]);
+                subArray.push(arr[i]);
+                console.log("subarray after push01 " + subArray);
+            } else {
+                console.log("end Subarray + arr[i]" + arr[i]);
+                //subArray.push(arr[i]);
+                console.log("Subarray: " + subArray);
+                console.log("Subarray.length: " + subArray.length);
+                outputArr.push(subArray.length);
+                console.log("Outputarray: " + outputArr);
+                console.log("next not bigger than 1 --> slice ");
+                console.log("Funktion um eines wegzutun: " + arr[i]);
+                subArray = sliceMaxArray(subArray);
+                console.log("subArray neu after splice: " + subArray);
+                subArray.push(arr[i]);
+                console.log("subArray neu after splice + push: " + subArray);
+                outputArr.push(subArray.length);
+                console.log("Outputarray after push: " + outputArr);
+
+
+            }
+        }
+        /* else if ((i == (subArray.length - 1)) && (arr[i] == arr[i-1])){
+                console.log("alternative path last element");
+                subArray.push(arr[i]);
+                outputArr.push(subArray.length);
+
+        }*/
+        else {
+            console.log("next bigger than 1: " + arr[i]);
+            outputArr.push(subArray.length); //empty pushings possible but shouldnt do any harm
+            subArray = []; //initialize it with zero
+        }
+
+    }
+
+    console.log("outputarr: " + outputArr);
+    var max = getMaxArr(outputArr);
+    console.log("MAX = " + max);
+
+    output20.innerHTML = max;
+}
+
+
+//Back to School
+//21
+function performOperation(secondInteger, secondDecimal, secondString) {
+    // Declare a variable named 'firstInteger' and initialize with integer value 4.
+    const firstInteger = 4;
+
+    // Declare a variable named 'firstDecimal' and initialize with floating-point value 4.0.
+    const firstDecimal = 4.0;
+
+    // Declare a variable named 'firstString' and initialize with the string "HackerRank".
+    const firstString = 'HackerRank ';
+
+    // Write code that uses console.log to print the sum of the 'firstInteger' and 'secondInteger' (converted to a Numbertype) on a new line.
+    console.log(firstInteger + Number(secondInteger));
+
+
+    // Write code that uses console.log to print the sum of 'firstDecimal' and 'secondDecimal' (converted to a Number            type) on a new line.
+    console.log(firstDecimal + Number(secondDecimal));
+
+    // Write code that uses console.log to print the concatenation of 'firstString' and 'secondString' on a new line. The variable 'firstString' must be printed first.
+    console.log(firstString + secondString);
+
+}
+
+//22
+function getFactorial(n) {
+    console.log("Get Factorial");
+
+    var output = [];
+
+
+    // base case 1! n*1
+    // 1! = 1*1; 
+    // 2! = 2 * 1! = 2 --> n * (n-1)*(n-1) 
+    // 3! = 3 * 2! = 3 * 2 = 6 --> n*  (n-1)*
+    // 4! = 4 * 3! = 24
+    // 5! = 5 * 4! = 5 * 24 =  120
+    // n! = n * (n-1)
+
+    for (let i = 0; i < (n + 1); i++) {
+
+        if (i == 0) {
+            output.push(0);
+            console.log("round: " + i + "output" + output[i]);
+        } else if (i == 1) {
+            output.push(1);
+            console.log("round: " + i + "output" + output[i]);
+        } else {
+
+
+            output.push(i * output[(i - 1)]);
+            console.log("round: " + i + "output" + output[(i)]);
+        }
+
+
+    }
+
+    console.log("finish:" + output);
+    console.log(output[n]);
+    output22.innerHTML = output[n];
+
+    //hackerrank: return (output[n]);
+}
+
+
+function vowelsAndConsonants(s) {
+
+    var consonants = "";
+    var vowels = "";
+
+    for (let i = 0; i < s.length; i++) {
+
+        if ((s.charAt(i) == "a") || (s.charAt(i) == "e") || (s.charAt(i) == "i") || (s.charAt(i) == "o") || (s.charAt(i) == "u")) {
+
+            vowels += s.charAt(i) + " ";
+        } else {
+            consonants += s.charAt(i) + " ";
+        }
+
+    }
+    console.log(vowels);
+    console.log(consonants);
+
+    output23.innerHTML = "";
+    output23.innerHTML += vowels + consonants;
+
+}
+
+function vowelsAndConsonants(s) {
+
+    console.log("VOWELS AND CONSONANTS");
+
+    var consonants = "";
+    var vowels = "";
+
+    for (let i = 0; i < s.length; i++) {
+
+        if ((s.charAt(i) == "a") || (s.charAt(i) == "e") || (s.charAt(i) == "i") || (s.charAt(i) == "o") || (s.charAt(i) == "u")) {
+
+            vowels += s.charAt(i) + " ";
+        } else {
+            consonants += s.charAt(i) + " ";
+        }
+
+    }
+    console.log(vowels);
+    console.log(consonants);
+
+    output23.innerHTML = "";
+    output23.innerHTML += vowels + consonants;
+
+}
+
+
+function getSecondLargest(nums) {
+
+    console.log("getSecondLargest");
+
+    // var arr = nums.sort();  // NOT CORRECT gives out [0, 1, 10, 11, 8, 8, 8, 9, 9, 9]...
+    var arr = nums.sort(function(a, b) {
+        return a - b;
+    });
+    console.log(arr);
+
+    var max = nums[nums.length - 1];
+    console.log(max);
+
+    var second = -66;
+
+    for (let i = (arr.length - 1); i >= 0; i--) {
+
+        //  console.log("i: " + i);
+        //  console.log ("arr[i]: " + arr[i]);
+
+        if ((arr[i] < max) && (second == -66)) {
+            second = arr[i];
+            console.log("2ndLargest: " + second);
+        } else {
+            console.log("i: " + i);
+            console.log("nums[i]: " + nums[i]);
+        }
+    }
+
+    output24.innerHTML = second;
+
+}
+
+
+function reverseString(s) {
+
+    console.log("REVERSE STRINGS: TRY, CATCH, FINALLY");
+
+
+
+
+    //Try Catch Block
+    try {
+        //part split:
+        var splitString = s.split("");
+        console.log(splitString);
+
+        //part reverse
+        var reverseArray = splitString.reverse();
+        console.log(reverseArray);
+
+        //part join
+        var joinArray = reverseArray.join("");
+        console.log(joinArray);
+        output25.innerHTML = joinArray;
+    } catch (e) {
+        console.log(e.message);
+        console.log(s);
+        output25.innerHTML = e.message + "<br>" + s;
+    }
+
+    // console.log("The program continued executing!");
+
+}
+/*
+function readLine() {
+var input = "";
+var index = 0;
+
+ return +(input[index++]); 
+} */
+
+function isPositive(a) {
+    // console.log("---isPositive and THROW---");
+
+    var output = "";
+
+    for (let i = 0; i < a.length; i++) {
+
+        try {
+            //console.log(isPositive(a));
+
+            if (a[i] == 0) {
+                throw new Error("Zero Error");
+            }
+
+            if (a[i] < 0) {
+                throw new Error("Negative Error");
+            }
+
+            console.log("YES");
+            output += "YES" + "<br>";
+
+
+
+
+        } catch (e) {
+            console.log(e.message);
+            output += e.message + "<br>";
+        }
+    }
+
+    output26.innerHTML = output;
+
+}
+
+function Rectangle(a, b) {
+
+    //object:
+    var length = a;
+    var width = b;
+    var perimeter = 2 * (a + b);
+    var area = a * b;
+
+    var Viereck = { length, width, perimeter, area };
+
+
+
+
+    console.log(Viereck);
+
+    //Hackerrank:
+    // return Viereck;
+
+    //output27.innerHTML = JSON.stringify(Viereck);
+    output27.innerHTML = Viereck.length + " " + Viereck.width + " " + Viereck.perimeter + " " + Viereck.area;
+}
+
+
+function getCount(objects) {
+
+    const fruits = {
+        apple: 28,
+        orange: 17,
+        pear: 54,
+    }
+
+    const keys = Object.keys(fruits);
+    console.log(keys); // [apple, orange, pear]
+
+    const values = Object.values(fruits);
+    console.log(values); // [28, 17, 54]
+
+    const entries = Object.entries(fruits);
+    console.log(entries);
 
     /*
-         //VARIANTE 6: not defined
-        for (let i = 0; i < outputArr.length; i++){
-        return outputArr[i];
+        const keysO = Object.keys(objects);
+        console.log(keysO); // [apple, orange, pear]
+
+        const valuesO = Object.values(objects);
+        console.log(valuesO[0]); // [28, 17, 54]
+        console.log(valuesO[1]);
+
+
+        const entriesO = Object.entries(objects);
+        console.log(entriesO);
+
+
+        var count = 0;
+
+        for (let i = 0; i < objects.length; i++) {
+
+            if ((valuesO[0] == valuesO[1])) {
+
+              count++;
+
+            }
+        }
+        
+        console.log("count: " + count);
+
+
+    for (const [objects] of entriesO) {
+
+       if (valuesO[0] == valuesO[0]){
+         console.log("help");
+         count++
+       }
+      //console.log(`There are ${objects}s`);
+    }
+
+    */
+
+    //good example
+    // see https://medium.com/chingu/looping-over-arrays-and-objects-in-javascript-57e1188c1ba2
+
+    storeItems = {
+        eggs: { price: 3.77, quantity: 30 },
+        milk: { price: 2.22, quantity: 23 },
+        butter: { price: 2.00, quantity: 22 },
+        carrots: { price: 3.00, quantity: 11 },
+        beef: { price: 6.18, quantity: 34 },
+        chicken: { price: 5.44, quantity: 34 }
+    };
+
+    input = {
+        0: { x: 1, y: 1 },
+        1: { x: 2, y: 3 },
+        2: { x: 3, y: 3 },
+        3: { x: 3, y: 4 },
+        4: { x: 4, y: 5 }
+    };
+
+
+    // ???? oje.. too much
+    Object.keys(input).forEach(item =>
+        console.log(`${input[item].x} vs ${input[item].y}`));
+
+
+    //VERSION WORKING - INPUT 
+    var countNew = 0;
+
+
+    for (let item in input) {
+        // console.log(`${input[item].x} vs ${input[item].y}`);
+
+        console.log(input[item].x + " vs " + input[item].y);
+
+        if ((input[item].x) == (input[item].y)) {
+            countNew++;
+        }
+    }
+
+    console.log(countNew);
+    output28.innerHTML = countNew;
+
+}
+
+
+//29 Classes and polygon
+
+function Polygon() {
+
+
+    class Polygon {
+
+        constructor(sides) {
+
+            this.sides = sides;
+
+        }
+
+        perimeter() {
+            var perimeter = 0;
+            for (let i = 0; i < this.sides.length; i++) {
+
+                perimeter += this.sides[i];
+
+            }
+            return perimeter;
+        }
+    }
+
+    // Create a polygon with side lengths 3, 4, and 5
+    let triangle = new Polygon([3, 4, 5]);
+
+    //some testcases
+    const rectangle = new Polygon([10, 20, 10, 20]);
+    const square = new Polygon([10, 10, 10, 10]);
+    const pentagon = new Polygon([10, 20, 30, 40, 43]);
+
+    console.log(rectangle.perimeter());
+    console.log(square.perimeter());
+    console.log(pentagon.perimeter());
+
+
+    // Print the perimeter
+    console.log(triangle.perimeter());
+    output29.innerHTML = triangle.perimeter();
+}
+
+
+//30 INHERITANCE
+
+function Rectangle2(a, b) {
+
+    console.log("-- INHERITANCE --");
+
+    class Rectangle2 {
+
+
+        constructor(a, b) {
+            this.a = a;
+            this.b = b;
+        }
+
+        /* area() {
+
+             return this.a * this.b;
+         } */
+    }
+
+
+    /*
+     *  Write code that adds an 'area' method to the Rectangle class' prototype
+     */
+    Rectangle2.prototype.area = function() {
+
+        return (this.a * this.b);
+    }
+
+    /*
+
+        class Square extends Rectangle2 {
+
+            constructor(c){
+                  super(a,b);
+                  this.a = c;
+                  this.b = c;
+
+        }
     } */
+
+    class Square extends Rectangle2 {
+
+        constructor(c) {
+            super(c, c);
+
+        }
+    }
+
+
+    /*
+
+       const rectangle1 = new Rectangle2(7,5);
+       console.log(rectangle1.area());
+
+          const square1 = new Square(4,7);
+       console.log(square1.area());
+       */
+
+    const rec = new Rectangle2(3, 4);
+    const sqr = new Square(3);
+
+    console.log(rec.area());
+    console.log(sqr.area());
+
+    output30.innerHTML = rec.area() + "<br>" + sqr.area();
+
+    // output27.innerHTML = Viereck.length + " " + Viereck.width + " " + Viereck.perimeter + " " + Viereck.area;
+}
+
+
+/* 31
+ * Determine the original side lengths and return an array:
+ * - The first element is the length of the shorter side
+ * - The second element is the length of the longer side
+ * 
+ * Parameter(s):
+ * literals: The tagged template literal's array of strings.
+ * expressions: The tagged template literal's array of expression values (i.e., [area, perimeter]).
+ */
+function sides(a, b) {
+
+    console.log("Template literals");
+
+    console.log(
+        'The sum of a and b is ' + (a + b) + '.\n' +
+        'The product of a and b is ' + (a * b) + '.'
+    );
+
+
+    console.log('The area is: ' + (a * b) + '.\nThe perimeter is: ' + 2 * (a + b) + '.');
+
+    console.log(`The sum of a and b is ${a + b}. 
+The product of a and b is ${a * b}.`);
+
+    console.log(`The area is ${a * b}.
+The perimeter is ${2*(a+b)}.`);
+
+}
+
+
+//32
+//ARROW FuNCTIONS
+
+/*
+ * Modify and return the array so that all even elements are doubled and all odd elements are tripled.
+ * 
+ * Parameter(s):
+ * nums: An array of numbers.
+ */
+function modifyArray(nums) {
+    console.log("ARROW FuNCTIONS");
+
+    const makeArray = (...values) => { return values };
+    console.log('Array:', makeArray(1, 2, 3, 4));
+    console.log('Array:', makeArray(1, 2, 3, 4, 5, 6));
+
+    const getSum = (a, b) => { return a + b };
+    console.log('1 + 2 =', getSum(1, 2, 3, 4, 5, 6));
+
+    const greeting = 'Hello, World.';
+    const capitalize = (myString) => { return myString.toUpperCase() };
+    console.log(greeting, '=>', capitalize(greeting));
+
+
+    //VAR1
+
+    const arr = [1, 2, 3, 4, 5];
+
+    const sum = arr.reduce(function(a, b) {
+        return a + b;
+    }, 0);
+
+    console.log('Array:', arr);
+    console.log('Sum:', sum);
+
+
+    //VAR2
+
+    const arr2 = [1, 2, 3, 4, 5];
+
+    const sum2 = arr2.reduce((a, b) => { return a + b }, 0);
+
+    console.log('Array:', arr2);
+    console.log('Sum:', sum2);
+
+
+    //VAR3
+    const arr3 = [1, 2, 3, 4, 5];
+
+    const sum3 = arr3.reduce((a, b) => a + b, 0);
+
+    console.log('Array:', arr3);
+    console.log('Sum:', sum3);
+
+
+    console.log(nums);
+
+    const makeTriple = (...values) => { return (values * 3) };
+
+    const double = nums.reduce((a) => a * 3, 0);
+    console.log("double" + double);
+
+    console.log(makeTriple(nums));
+
+
+    const getTriple = (a) => { return (a * 3) };
+    console.log("getTriple(4): " + getTriple(4));
+
+    const getDouble = (b) => { return (b * 2) };
+    console.log("getDouble(4): " + getDouble(4));
+
+    var arrayNew = [];
+    for (let i = 0; i < nums.length; i++) {
+
+        if (nums[i] % 2 == 0) {
+            arrayNew.push(getDouble(nums[i]));
+        } else {
+            arrayNew.push(getTriple(nums[i]));
+        }
+    }
+
+    console.log(arrayNew);
+    output32.innerHTML = arrayNew.join(" ");
+}
+
+
+
+//33
+function tryBitwise(pairs) {
+
+    console.log("bitwise whatever");
 
 
 }
+
+
+//34
+// The days of the week are: "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+
+function getDayName(dateString) {
+    let day;
+    //  = new Date(dateString);
+    // Write your code here
+    output34.innerHTML = "";
+
+
+    for (let i = 0; i < dateString.length; i++) {
+        let date = new Date(dateString[i]);
+        //console.log(`date.getDay(${i}): ${date.getDay()}`);
+
+        output = date.getDay();
+
+
+        switch (output) {
+            case 0:
+                day = "Sunday";
+                console.log(day);
+                output34.innerHTML += day + "<br>";
+                break;
+            case 1:
+                day = "Monday";
+                console.log(day);
+                output34.innerHTML += day + "<br>";
+                break;
+            case 2:
+                day = "Tuesday";
+                console.log(day);
+                output34.innerHTML += day + "<br>";
+                break;
+            case 3:
+                day = "Wednesday";
+                console.log(day);
+                output34.innerHTML += day + "<br>";
+                break;
+            case 4:
+                day = "Thursday";
+                console.log(day);
+                output34.innerHTML += day + "<br>";
+                break;
+            case 5:
+                day = "Friday";
+                console.log(day);
+                output34.innerHTML += day + "<br>";
+                break;
+            case 6:
+                day = "Saturday";
+                console.log(day);
+                output34.innerHTML += day + "<br>";
+        }
+
+    }
+
+    // dateString.
+    return 0;
+}
+
+
+//
+function regexVar(str) {
+
+    console.log("REGULAR EXPRESSIONS - PART ONE");
+    /*
+     * Declare a RegExp object variable named 're'
+     * It must match a string that starts and ends with the same vowel (i.e., {a, e, i, o, u})
+     */
+
+    var re = /^learn/;
+    var str1 = 'learn regular expressions';
+    var str2 = 'write regular expressions';
+
+    console.log(re.test(str1));
+    console.log(re.test(str2));
+
+    var re1 = /^[aeiou]/; //is start of string vowl
+    var re2 = /[aeiou]$/; //end of string
+    var re3 = /^[aeiou].*[aeiou]$/; //start and end of string with a vowl
+    var re4 = /^(.).*\1$/; //check if first and last character is the same
+   // var re5 = 
+    var str3 = 'hhfe';
+    var str4 = 'ihehe';
+    var str5 = 'phap';
+    var str6 = 'abcda';
+    console.log("start of string a vowel? " + re1.test(str3));
+    console.log("start of string a vowel? " + re1.test(str4));
+    console.log("start and end of string a vowel? " + re3.test(str3));
+    console.log("start and end of string a vowel? " + re3.test(str4));
+    console.log("start and end the same? [true]" + re4.test(str5));
+    console.log("start and end the same? [true]" + re4.test(str6));
+
+    console.log(`ES6`);
+    console.log("start and end the same and a vowl? [false]" + re4.test(str5));
+    console.log("start and end the same and a vowl? [true]" + re4.test(str6));
+    console.log(`start and end the same and a vowl? [false] ${re4.test(str5)}`);
+    console.log(`start and end the same and a vowl? [false] ${re4.test(str6)}`);
+
+    /*
+     * Do not remove the return statement
+     */
+
+
+
+    //traditional
+    /*
+    if ((re4.test(str6) == true) && (re3.test(str6) == true)){
+        re = true;
+    } else {
+        re = false;
+    } */
+
+    //ES6
+
+
+    re = ((re4.test(str) == true) && (re3.test(str) == true)) ? true : false; 
+
+
+    console.log(` FINAL OUTPUT: start and end the same and a vowl?` + re);
+
+    output35.innerHTML = re;
+    return re;
+}
+
+
+//VERSION HACKERRANK
+function regexVarHackerrank() {
+
+  var re = new RegExp(/^(.).*\1$/); //alle Testfälle korrekt 
+
+}
+
+
+///36 RegExpr 2
+function regexVar2(string){
+    console.log("-- REGEXPR 2--");
+
+    var re1 = /^(Mr\.|Dr\.|Er\.|Ms\.|Mrs\.)/; //is start of string String
+     var re2 = /^(Mr\.|Dr\.|Er\.|Ms\.|Mrs\.)\s?[a-z|A-Z]+$/; //is start of string String, so space and endString
+
+
+      console.log(re1.test(string));
+      console.log(re2.test(string));
+
+    //hackerrank
+    // const re = new RegExp(/^(Mr\.|Dr\.|Er\.|Ms\.|Mrs\.)\s?[a-z|A-Z]+$/);
+
+    output36.innerHTML = re2.test(string);
+    return re2;
+
+}
+
+function regexVar3(string){
+
+    console.log("-- REGEXPR 3--");
+
+
+    console.log(string.match(/[0-9]+/gm));
+    console.log(string.match(/[0-9]+/g));
+     //console.log(string.match(/[0-9]/));
+
+/*
+     g: global match.
+    i: ignore case.
+    m: multiline. Treats beginning (^) and end ($) characters as working over multiple lines.
+    u: unicode. Treat pattern as a sequence of unicode code points.
+    y: sticky. Matches only from the index indicated by the lastIndex property of this regular expression in the target string.
+*/
+    //hackerrank
+    //const re = new RegExp(/[0-9]+/gm);
+
+    output37.innerHTML = string.match(/[0-9]+/gm);
+}
+
+
+/* Create a button element */
+            var clickMeButton = document.createElement('button');
+            /* Set the button's text label */
+            clickMeButton.innerHTML = 'I\'m a JavaScript button!';
+            /* Set the button's id */
+            clickMeButton.id = 'jsButton';
+            /* Set the button's style class */
+            clickMeButton.className = 'button';
+            /* Add the button to the page */
+            // document.body.appendChild(clickMeButton);
+
+            /* Add the button to a certain div */
+           document.getElementById("buttonland").appendChild(clickMeButton);
+
+          
+
+            
+            /* Get the element with id='htmlButton2' */
+            var htmlButton = document.getElementById('htmlButton2');
+            /* Modify the text label for htmlButton2 */
+            htmlButton.innerHTML = 'I\'m a modified HTML button!';
+
+
+//exercise 38
+var btnincrement = document.getElementById('btnincrement');
+
+/* This sets the action to perform on a click event */
+btnincrement.onclick = function() {
+    /* This changes the button's label */
+    btnincrement.innerHTML ++;
+};
+
+//exercise 39
+
+// btn5.onclick = function() {
+//     /* This changes the button's label */
+    
+//     //console.log(`btn1.innerHTML =  ${btn1.innerHTML}`);
+//     if ((btn1.innerHTML ==1) || (btn1.innerHTML ==4)) {
+//       /*  var output1 = Number(btn1.innerHTML);
+//         output1 += 3;
+//         btn1.innerHTML = output1;
+//           console.log(`btn1.innerHTML =  ${btn1.innerHTML}`); */
+//           btn1.innerHTML = Number(btn1.innerHTML)+3;
+//     }
+//     else if((btn1.innerHTML ==7) || (btn1.innerHTML == 8)){
+//         btn1.innerHTML = Number(btn1.innerHTML)+1;
+//     //console.log(`btn1.innerHTML =  ${btn1.innerHTML}`);
+//     }
+//     else if((btn1.innerHTML ==9) || (btn1.innerHTML == 6)){
+//         btn1.innerHTML = Number(btn1.innerHTML)-3;
+//      //console.log(`btn1.innerHTML =  ${btn1.innerHTML}`);
+//     }
+//     else if((btn1.innerHTML ==3) || (btn1.innerHTML == 2)){
+//         btn1.innerHTML = Number(btn1.innerHTML)-1;
+//      //console.log(`btn1.innerHTML =  ${btn1.innerHTML}`);
+//     }
+
+
+//     if ((btn2.innerHTML ==1) || (btn2.innerHTML ==4)) {
+
+//           btn2.innerHTML = Number(btn2.innerHTML)+3;
+//     }
+//     else if((btn2.innerHTML ==7) || (btn2.innerHTML == 8)){
+//         btn2.innerHTML = Number(btn2.innerHTML)+1;
+
+//     }
+//     else if((btn2.innerHTML ==9) || (btn2.innerHTML == 6)){
+//         btn2.innerHTML = Number(btn2.innerHTML)-3;
+
+//     }
+//     else if((btn2.innerHTML ==3) || (btn2.innerHTML == 2)){
+//         btn2.innerHTML = Number(btn2.innerHTML)-1;
+
+//     }
+
+//     if ((btn3.innerHTML ==1) || (btn3.innerHTML ==4)) {
+
+//           btn3.innerHTML = Number(btn3.innerHTML)+3;
+//     }
+//     else if((btn3.innerHTML ==7) || (btn3.innerHTML == 8)){
+//         btn3.innerHTML = Number(btn3.innerHTML)+1;
+
+//     }
+//     else if((btn3.innerHTML ==9) || (btn3.innerHTML == 6)){
+//         btn3.innerHTML = Number(btn3.innerHTML)-3;
+
+//     }
+//     else if((btn3.innerHTML ==3) || (btn3.innerHTML == 2)){
+//         btn3.innerHTML = Number(btn3.innerHTML)-1;
+
+//     }
+
+
+//     if ((btn4.innerHTML ==1) || (btn4.innerHTML ==4)) {
+
+//           btn4.innerHTML = Number(btn4.innerHTML)+3;
+//     }
+//     else if((btn4.innerHTML ==7) || (btn4.innerHTML == 8)){
+//         btn4.innerHTML = Number(btn4.innerHTML)+1;
+
+//     }
+//     else if((btn4.innerHTML ==9) || (btn4.innerHTML == 6)){
+//         btn4.innerHTML = Number(btn4.innerHTML)-3;
+
+//     }
+//     else if((btn4.innerHTML ==3) || (btn4.innerHTML == 2)){
+//         btn4.innerHTML = Number(btn4.innerHTML)-1;
+
+//     }
+
+//     if ((btn6.innerHTML ==1) || (btn6.innerHTML ==4)) {
+
+//           btn6.innerHTML = Number(btn6.innerHTML)+3;
+//     }
+//     else if((btn6.innerHTML ==7) || (btn6.innerHTML == 8)){
+//         btn6.innerHTML = Number(btn6.innerHTML)+1;
+
+//     }
+//     else if((btn6.innerHTML ==9) || (btn6.innerHTML == 6)){
+//         btn6.innerHTML = Number(btn6.innerHTML)-3;
+
+//     }
+//     else if((btn6.innerHTML ==3) || (btn6.innerHTML == 2)){
+//         btn6.innerHTML = Number(btn6.innerHTML)-1;
+
+//     }
+    
+//     if ((btn7.innerHTML ==1) || (btn7.innerHTML ==4)) {
+
+//           btn7.innerHTML = Number(btn7.innerHTML)+3;
+//     }
+//     else if((btn7.innerHTML ==7) || (btn7.innerHTML == 8)){
+//         btn7.innerHTML = Number(btn7.innerHTML)+1;
+
+//     }
+//     else if((btn7.innerHTML ==9) || (btn7.innerHTML == 6)){
+//         btn7.innerHTML = Number(btn7.innerHTML)-3;
+
+//     }
+//     else if((btn7.innerHTML ==3) || (btn7.innerHTML == 2)){
+//         btn7.innerHTML = Number(btn7.innerHTML)-1;
+
+//     }
+
+
+//     if ((btn8.innerHTML ==1) || (btn8.innerHTML ==4)) {
+
+//           btn8.innerHTML = Number(btn8.innerHTML)+3;
+//     }
+//     else if((btn8.innerHTML ==7) || (btn8.innerHTML == 8)){
+//         btn8.innerHTML = Number(btn8.innerHTML)+1;
+
+//     }
+//     else if((btn8.innerHTML ==9) || (btn8.innerHTML == 6)){
+//         btn8.innerHTML = Number(btn8.innerHTML)-3;
+
+//     }
+//     else if((btn8.innerHTML ==3) || (btn8.innerHTML == 2)){
+//         btn8.innerHTML = Number(btn8.innerHTML)-1;
+
+//     }
+
+//     if ((btn9.innerHTML ==1) || (btn9.innerHTML ==4)) {
+
+//           btn9.innerHTML = Number(btn9.innerHTML)+3;
+//     }
+//     else if((btn9.innerHTML ==7) || (btn9.innerHTML == 8)){
+//         btn9.innerHTML = Number(btn9.innerHTML)+1;
+
+//     }
+//     else if((btn9.innerHTML ==9) || (btn9.innerHTML == 6)){
+//         btn9.innerHTML = Number(btn9.innerHTML)-3;
+
+//     }
+//     else if((btn9.innerHTML ==3) || (btn9.innerHTML == 2)){
+//         btn9.innerHTML = Number(btn9.innerHTML)-1;
+
+//     }
+
+// };
+
+
+
+//easiest version
+btn5.onclick=function(){ 
+    var start=btn1.innerHTML; 
+    btn1.innerHTML=btn4.innerHTML; 
+    btn4.innerHTML=btn7.innerHTML; 
+    btn7.innerHTML=btn8.innerHTML; 
+    btn8.innerHTML=btn9.innerHTML; 
+    btn9.innerHTML=btn6.innerHTML; 
+    btn6.innerHTML=btn3.innerHTML; 
+    btn3.innerHTML=btn2.innerHTML; 
+    btn2.innerHTML=start;
+}
+
+
+//Version with unshift:
+// const ids = [1, 2, 3, 6, 9, 8, 7, 4]; // start positions ids in clockwise order
+// let numsA = [1, 2, 3, 6, 9, 8, 7, 4]; // rotating in clockwise order
+// let btn5 = document.getElementById("btn5");
+
+// btn5.onclick = function() {
+//   numsA.unshift(numsA.pop());
+//   for (i = 0; i <= 7; i++) {
+//     //document.getElementById("btn" + ids[i]).innerHTML = numsA[i];
+//     console.log (document.getElementByid("btn" + ids[i]).innerHTML);
+//   }
+// };
