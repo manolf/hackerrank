@@ -1,42 +1,54 @@
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Certification JavaScript Hackerrank</title>
-	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-	
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Certification JavaScript Hackerrank</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
+
 <body>
-
-
-
-	<hr>
-
-		<button class= "btn btn-success" id="test" onclick="return fizzBuzz(9)">fizzBuzz(9)</button>
-		<button class= "btn btn-success" id="test" onclick="return fizzBuzz(15)">fizzBuzz(15)</button>
-		<button class= "btn btn-success" id="test" onclick="return fizzBuzz(11)">fizzBuzz(11)</button>
-		<button class= "btn btn-success" id="test" onclick="return fizzBuzz(25)">fizzBuzz(25)</button>
-
-<h2 id="solution"> solution</h2>
-
-<hr>
-
-<button class= "btn btn-warning" id="test" onclick="return test([-4, 3, -9, 0, 4, 1])">test([-4, 3, -9, 0, 4, 1])</button>
-
-
-<h2 id="solution2"> solution2</h2>
-
-<hr>
-
-<button class= "btn btn-info" id="test" onclick="return anagram(['heater', 'cold', 'clod', 'reheat', 'docl'], ['codl', 'heater', 'abcd'])">anagram(['heater', 'cold', 'clod', 'reheat', 'docl'], [codl, heater, abcd])</button>
-
-
-<h3 id="output3"> solution</h3>
-
-
-<script src="certJS.js"></script>
+    <hr>
+    <button class="btn btn-success" id="test" onclick="return fizzBuzz(9)">fizzBuzz(9)</button>
+    <button class="btn btn-success" id="test" onclick="return fizzBuzz(15)">fizzBuzz(15)</button>
+    <button class="btn btn-success" id="test" onclick="return fizzBuzz(11)">fizzBuzz(11)</button>
+    <button class="btn btn-success" id="test" onclick="return fizzBuzz(25)">fizzBuzz(25)</button>
+    <h2 id="solution"> solution</h2>
+    <hr>
+    <button class="btn btn-warning" id="test" onclick="return test([-4, 3, -9, 0, 4, 1])">test([-4, 3, -9, 0, 4, 1])</button>
+    <h2 id="solution2"> solution2</h2>
+    <hr>
+    <h2>Part 1</h2>
+    <button class="btn btn-info" id="test" onclick="return anagram(['heater', 'cold', 'clod', 'reheat', 'docl'], ['codl', 'heater', 'abcd'])">anagram(['heater', 'cold', 'clod', 'reheat', 'docl'], [codl, heater, abcd])</button>
+    <h3 id="output3"> solution</h3>
+    <hr>
+    <h2>Part 2</h2>
+    <button class="btn btn-info" id="test2" onclick="return getMostActiveTraders(['Bigcorp','Bigcorp','Acme','Bigcorp','Zork','Zork','Abc','Bigcorp','Acme','Bigcorp','Bigcorp','Zork','Bigcorp','Zork','Zork','Bigcorp','Acme','Bigcorp','Acme','Bigcorp','Acme','Littlecorp','Nadircorp'])">getMostActiveTraders(['Bigcorp',...'Acme','Littlecorp','Nadircorp'])</button>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Part 2</th>
+                <th scope="col">INPUT</th>
+                <th scope="col">SOLL</th>
+                <th scope="col">explain</th>
+                <th scope="col">IST</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>customers=['Bigcorp','Bigcorp','Acme','Bigcorp','Zork',<br>'Zork','Abc','Bigcorp','Acme','Bigcorp',<br>'Bigcorp','Zork','Bigcorp','Zork','Zork',<br>'Bigcorp','Acme','Bigcorp','Acme','Bigcorp',<br>'Acme','Littlecorp','Nadircorp']</td>
+                <td>determine which customers account for at least 5% of the total number of trades -> order list alphabetically ascending by name</td>
+                <td> ['Acme','Bigcorp','Zork'] </td>
+                <td id="output4">solution</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <h2>ExtraLesson Map-Functions</h2>
+    <button class="btn btn-warning" onclick="return extraLesson()">extraLesson()</button>
+    <script src="certJS.js"></script>
 </body>
-
 
 </html>
