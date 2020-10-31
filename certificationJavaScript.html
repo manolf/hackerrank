@@ -16,8 +16,39 @@
     <button class="btn btn-success" id="test" onclick="return fizzBuzz(25)">fizzBuzz(25)</button>
     <h2 id="solution"> solution</h2>
     <hr>
-    <button class="btn btn-warning" id="test" onclick="return test([-4, 3, -9, 0, 4, 1])">test([-4, 3, -9, 0, 4, 1])</button>
+    <button class="btn btn-warning" onclick="return addNote(active, drinkTea)">addNote(active, drinkTea)</button>
+    <button class="btn btn-warning" onclick="return addNote(active, drinkCoffee)">addNote(active, drinkCoffee)</button>
+    <button class="btn btn-warning" onclick="return addNote(completed, study)">addNote(completed, study)</button>
+    
+<table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Classes</th>
+                <th scope="col">INPUT</th>
+                <th scope="col">SOLL</th>
+                <th scope="col">explain</th>
+                <th scope="col">IST</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>addNote active drinkTea <br> addNote active drinkCoffee <br> addNote completed study <br> getNotes active <br> getNotes completed <br> getNotes foo</td>
+                <td> drinkTea, drinkCoffee <br> study <br> Error: invalid state foo</td>
+                <td>create one Class NoteStore <br>
+                3 valid states: 'completed', 'active','others'<br> 2 methods:<br><b>addNote(state,name):</b><br>adding note with name and state <br> name empty: 'Name cannot be empty' <br>state is not valid: 'Error: Invalid state {state} <br><b> getNotes(state)</b> <br>returning array of notes with given state: <br> in the order of the notes added <br>state is not valid: 'Error: Invalid state {state} <br> no note found: empty array
+                </td>
+               
+                <td id="output1">solution</td>
+            </tr>
+        </tbody>
+    </table>
+
+
     <h2 id="solution2"> solution2</h2>
+    
+
+
     <hr>
     <h2>Part 1</h2>
     <button class="btn btn-info" id="test" onclick="return anagram(['heater', 'cold', 'clod', 'reheat', 'docl'], ['codl', 'heater', 'abcd'])">anagram(['heater', 'cold', 'clod', 'reheat', 'docl'], [codl, heater, abcd])</button>

@@ -44,8 +44,14 @@ function test(arr) {
 
 class NotesStore {
 
-    addNote(state, name) {
 
+    addNote(state, name) {
+    	console.log("function 1");
+
+    }
+
+    getNotes(state){
+    	console.log("function 2");
     }
 
 

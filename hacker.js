@@ -1326,7 +1326,7 @@ function reverseString(s) {
 
     console.log("REVERSE STRINGS: TRY, CATCH, FINALLY");
 
-
+    console.log(typeof(s));
 
 
     //Try Catch Block
@@ -1839,7 +1839,7 @@ function regexVar(str) {
     var re2 = /[aeiou]$/; //end of string
     var re3 = /^[aeiou].*[aeiou]$/; //start and end of string with a vowl
     var re4 = /^(.).*\1$/; //check if first and last character is the same
-   // var re5 = 
+    // var re5 = 
     var str3 = 'hhfe';
     var str4 = 'ihehe';
     var str5 = 'phap';
@@ -1874,7 +1874,7 @@ function regexVar(str) {
     //ES6
 
 
-    re = ((re4.test(str) == true) && (re3.test(str) == true)) ? true : false; 
+    re = ((re4.test(str) == true) && (re3.test(str) == true)) ? true : false;
 
 
     console.log(` FINAL OUTPUT: start and end the same and a vowl?` + re);
@@ -1887,21 +1887,21 @@ function regexVar(str) {
 //VERSION HACKERRANK
 function regexVarHackerrank() {
 
-  var re = new RegExp(/^(.).*\1$/); //alle Testfälle korrekt 
+    var re = new RegExp(/^(.).*\1$/); //alle Testfälle korrekt 
 
 }
 
 
 ///36 RegExpr 2
-function regexVar2(string){
+function regexVar2(string) {
     console.log("-- REGEXPR 2--");
 
     var re1 = /^(Mr\.|Dr\.|Er\.|Ms\.|Mrs\.)/; //is start of string String
-     var re2 = /^(Mr\.|Dr\.|Er\.|Ms\.|Mrs\.)\s?[a-z|A-Z]+$/; //is start of string String, so space and endString
+    var re2 = /^(Mr\.|Dr\.|Er\.|Ms\.|Mrs\.)\s?[a-z|A-Z]+$/; //is start of string String, so space and endString
 
 
-      console.log(re1.test(string));
-      console.log(re2.test(string));
+    console.log(re1.test(string));
+    console.log(re2.test(string));
 
     //hackerrank
     // const re = new RegExp(/^(Mr\.|Dr\.|Er\.|Ms\.|Mrs\.)\s?[a-z|A-Z]+$/);
@@ -1911,22 +1911,22 @@ function regexVar2(string){
 
 }
 
-function regexVar3(string){
+function regexVar3(string) {
 
     console.log("-- REGEXPR 3--");
 
 
     console.log(string.match(/[0-9]+/gm));
     console.log(string.match(/[0-9]+/g));
-     //console.log(string.match(/[0-9]/));
+    //console.log(string.match(/[0-9]/));
 
-/*
-     g: global match.
-    i: ignore case.
-    m: multiline. Treats beginning (^) and end ($) characters as working over multiple lines.
-    u: unicode. Treat pattern as a sequence of unicode code points.
-    y: sticky. Matches only from the index indicated by the lastIndex property of this regular expression in the target string.
-*/
+    /*
+         g: global match.
+        i: ignore case.
+        m: multiline. Treats beginning (^) and end ($) characters as working over multiple lines.
+        u: unicode. Treat pattern as a sequence of unicode code points.
+        y: sticky. Matches only from the index indicated by the lastIndex property of this regular expression in the target string.
+    */
     //hackerrank
     //const re = new RegExp(/[0-9]+/gm);
 
@@ -1935,26 +1935,26 @@ function regexVar3(string){
 
 
 /* Create a button element */
-            var clickMeButton = document.createElement('button');
-            /* Set the button's text label */
-            clickMeButton.innerHTML = 'I\'m a JavaScript button!';
-            /* Set the button's id */
-            clickMeButton.id = 'jsButton';
-            /* Set the button's style class */
-            clickMeButton.className = 'button';
-            /* Add the button to the page */
-            // document.body.appendChild(clickMeButton);
+var clickMeButton = document.createElement('button');
+/* Set the button's text label */
+clickMeButton.innerHTML = 'I\'m a JavaScript button!';
+/* Set the button's id */
+clickMeButton.id = 'jsButton';
+/* Set the button's style class */
+clickMeButton.className = 'button';
+/* Add the button to the page */
+ document.body.appendChild(clickMeButton);
 
-            /* Add the button to a certain div */
-           document.getElementById("buttonland").appendChild(clickMeButton);
+/* Add the button to a certain div */
+document.getElementById("buttonland").appendChild(clickMeButton);
 
-          
 
-            
-            /* Get the element with id='htmlButton2' */
-            var htmlButton = document.getElementById('htmlButton2');
-            /* Modify the text label for htmlButton2 */
-            htmlButton.innerHTML = 'I\'m a modified HTML button!';
+
+
+/* Get the element with id='htmlButton2' */
+var htmlButton = document.getElementById('htmlButton2');
+/* Modify the text label for htmlButton2 */
+htmlButton.innerHTML = 'I\'m a modified HTML button!';
 
 
 //exercise 38
@@ -1963,14 +1963,14 @@ var btnincrement = document.getElementById('btnincrement');
 /* This sets the action to perform on a click event */
 btnincrement.onclick = function() {
     /* This changes the button's label */
-    btnincrement.innerHTML ++;
+    btnincrement.innerHTML++;
 };
 
 //exercise 39
 
 // btn5.onclick = function() {
 //     /* This changes the button's label */
-    
+
 //     //console.log(`btn1.innerHTML =  ${btn1.innerHTML}`);
 //     if ((btn1.innerHTML ==1) || (btn1.innerHTML ==4)) {
 //       /*  var output1 = Number(btn1.innerHTML);
@@ -2061,7 +2061,7 @@ btnincrement.onclick = function() {
 //         btn6.innerHTML = Number(btn6.innerHTML)-1;
 
 //     }
-    
+
 //     if ((btn7.innerHTML ==1) || (btn7.innerHTML ==4)) {
 
 //           btn7.innerHTML = Number(btn7.innerHTML)+3;
@@ -2119,16 +2119,16 @@ btnincrement.onclick = function() {
 
 
 //easiest version
-btn5.onclick=function(){ 
-    var start=btn1.innerHTML; 
-    btn1.innerHTML=btn4.innerHTML; 
-    btn4.innerHTML=btn7.innerHTML; 
-    btn7.innerHTML=btn8.innerHTML; 
-    btn8.innerHTML=btn9.innerHTML; 
-    btn9.innerHTML=btn6.innerHTML; 
-    btn6.innerHTML=btn3.innerHTML; 
-    btn3.innerHTML=btn2.innerHTML; 
-    btn2.innerHTML=start;
+btn5.onclick = function() {
+    var start = btn1.innerHTML;
+    btn1.innerHTML = btn4.innerHTML;
+    btn4.innerHTML = btn7.innerHTML;
+    btn7.innerHTML = btn8.innerHTML;
+    btn8.innerHTML = btn9.innerHTML;
+    btn9.innerHTML = btn6.innerHTML;
+    btn6.innerHTML = btn3.innerHTML;
+    btn3.innerHTML = btn2.innerHTML;
+    btn2.innerHTML = start;
 }
 
 
@@ -2144,3 +2144,29 @@ btn5.onclick=function(){
 //     console.log (document.getElementByid("btn" + ids[i]).innerHTML);
 //   }
 // };
+
+
+// #41
+function matchingStrings(strings, queries) {
+    console.log("-- matchingStrings --");
+
+    var output = [];
+    var count = 0;
+
+    for (let j = 0; j < queries.length; j++) {
+        for (let i = 0; i < strings.length; i++) {
+
+            if (strings[i] == queries[j]) {
+                count++;
+            }
+        }
+        output.push(count);
+        count = 0;
+
+    }
+
+    console.log(output);
+    output41.innerHTML = output;
+
+
+}
